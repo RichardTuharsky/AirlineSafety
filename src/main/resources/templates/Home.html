@@ -1,0 +1,37 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Airline Safety</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<h1>Airline Safety Data</h1>
+
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>AVAILABLE SEATS</th>
+        <th>INCIDENTS</th>
+        <th>ACCIDENTS</th>
+        <th>FATALITIES</th>
+    </tr>
+    <tr th:each="entry: ${data}">
+        <td th:text="${entry.name}"></td>
+        <td th:text="${entry.incidents}"></td>
+        <td th:text="${entry.availableseats}"></td>
+        <td th:text="${entry.accidents}"></td>
+        <td th:text="${entry.fatalities}"></td>
+    </tr>
+</table>
+
+<p>
+    <a href="../home.html" th:href="@{/}">Return to home</a>
+</p>
+
+</body>
+
+</html>
