@@ -16,8 +16,7 @@ import org.springframework.stereotype.Service;
 @Service //this tells spring this is a data service, business logic inside
 public class DataService {
 
-    private final String URL_DATA = "https://raw.githubusercontent.com/fivethirtyeight/data/master/airline-safety/airline-safety.csv";
-    private List<Airline> airlineList = new ArrayList<>();
+    private final List<Airline> airlineList = new ArrayList<>();
 
     public void fetchData() throws IOException, InterruptedException, IOException {
 
@@ -29,6 +28,7 @@ public class DataService {
 
         HttpClient client = HttpClient.newHttpClient();
 
+        String URL_DATA = "https://raw.githubusercontent.com/fivethirtyeight/data/master/airline-safety/airline-safety.csv";
         HttpRequest request = HttpRequest.newBuilder(URI.create(URL_DATA)).build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
